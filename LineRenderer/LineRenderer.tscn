@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LineRenderer/LineRenderer.gd" type="Script" id=1]
+
+[node name="LineRenderer" type="ImmediateGeometry"]
+script = ExtResource( 1 )
+points = [ Vector3( 0, 0, 0 ), Vector3( 0, 4, 0 ) ]
+scaleTexture = false

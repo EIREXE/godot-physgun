@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/grid-dragon.png" type="Texture" id=1]
+[ext_resource path="res://textures/grid-blue.png" type="Texture" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( -1, 1, 1 )
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.5, 0.5, 0.5 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 0.999999, 0.000756822, 0.000788284, -0.000756055, 0.999999, -0.000951271, -0.00078902, 0.000950661, 0.999999, 0, -2.10725, 0 )
+use_collision = true
+width = 20.2545
+depth = 22.3369
+material = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.447104, -0.561507, 0.696281, 0, 0.778418, 0.627746, -0.894482, -0.280667, 0.348034, 0, 0, 0 )
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0278868, 0, 0.999611, 0, 1, 0, -0.999611, 0, 0.0278868, 4.68499, -0.466529, 0 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.999999, 0.000756822, 0.000788284, -0.000756055, 0.999999, -0.000951271, -0.00078902, 0.000950661, 0.999999, 0, -0.10554, 0 )
+mass = 10.0
+
+[node name="CSGBox" type="CSGBox" parent="RigidBody"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+material = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="RigidBody2" type="RigidBody" parent="."]
+transform = Transform( 0.576349, -0.000341609, -0.817203, -0.000756055, 0.999999, -0.000951271, 0.817203, 0.00116612, 0.576349, 0.687618, -0.10554, -2.55785 )
+mass = 10.0
+
+[node name="CSGBox" type="CSGBox" parent="RigidBody2"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+material = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody2"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="RigidBody4" type="RigidBody" parent="."]
+transform = Transform( 0.979786, 0.000550491, -0.200049, -0.000756055, 0.999999, -0.000951271, 0.200048, 0.00108328, 0.979785, 1.86039, -0.60771, -0.73243 )
+mass = 10.0
+
+[node name="CSGBox" type="CSGBox" parent="RigidBody4"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+width = 1.0
+height = 1.0
+depth = 1.0
+material = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody4"]
+transform = Transform( 1, -1.16415e-010, -8.9407e-008, 1.16415e-010, 1, 0, 5.96046e-008, 1.16415e-010, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="RigidBody3" type="RigidBody" parent="."]
+transform = Transform( 0.999999, 0.000756822, 0.000788284, -0.000756055, 0.999999, -0.000951271, -0.00078902, 0.000950661, 0.999999, 0, 2.05445, -1.21538 )
+mass = 10.0
+
+[node name="CSGBox" type="CSGBox" parent="RigidBody3"]
+transform = Transform( 1, -1.28182e-010, -2.32831e-010, 1.95257e-010, 1, 0, 0, 1.74623e-010, 1, 0, 0, 0 )
+material = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody3"]
+transform = Transform( 1, -6.969e-011, -5.82077e-011, 7.90124e-011, 1, 0, 0, 5.82077e-011, 1, 0, 0, 0 )
+shape = SubResource( 3 )
